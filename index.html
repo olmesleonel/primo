@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primo o Compuesto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <aside class="brand-rail">
+      <div class="brand-symbol">p</div>
+      <div class="brand-copy"><span>NÚMEROS</span><span>DISCRETOS</span></div>
+      <div class="rail-line"></div>
+      <div class="rail-words"><span>PEQUEÑOS</span><span>NÚMEROS</span><span>GRANDES</span><span>PATRONES</span></div>
+      <div class="version">v1.0</div>
+    </aside>
+
+    <section class="main-panel">
+      <header class="hero">
+        <div>
+          <h1>PRIMO O COMPUESTO</h1>
+          <p>ANALIZA NÚMEROS Y DESCUBRE SU NATURALEZA</p>
+        </div>
+        <div class="hero-note">
+          <span>“EN LOS NÚMEROS</span><span>TAMBIÉN HAY ORDEN”</span>
+          <small>— MATEMÁTICAS DISCRETAS</small>
+        </div>
+      </header>
+
+      <section class="input-zone">
+        <div class="input-row">
+          <div class="input-box">
+            <span class="input-prefix">›</span>
+            <input id="numberInput" type="number" min="2" step="1" placeholder="Ingresa un número entero..." autocomplete="off">
+            <button id="clearInputBtn" class="clear-input" type="button">×</button>
+          </div>
+          <button id="analyzeBtn" class="analyze-btn" type="button">Analizar <span>→</span></button>
+        </div>
+
+        <div class="secondary-row">
+          <label class="method-group">
+            <span>Método de comprobación</span>
+            <select id="methodSelect">
+              <option value="sqrt">División hasta √n</option>
+              <option value="sixk">Método 6k ± 1</option>
+            </select>
+          </label>
+
+          <button id="toggleListBtn" class="list-link" type="button"><span>▣</span> Ingresar lista de números</button>
+        </div>
+
+        <div id="listPanel" class="list-panel" hidden>
+          <textarea id="listInput" rows="4" placeholder="Ejemplo: 2, 3, 4, 7, 10, 13, 17..."></textarea>
+          <div class="list-panel-actions">
+            <span>Separa los números por comas, espacios o saltos de línea.</span>
+            <button id="analyzeListBtn" type="button">Analizar lista →</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="emptyState" class="empty-state">
+        <div class="pattern-mark"><div></div><div></div><div></div></div>
+        <div class="empty-copy">
+          <p>Ingresa un número</p><p>y descubre si es primo o compuesto.</p><span></span>
+        </div>
+      </section>
+
+      <section id="resultState" class="result-state" hidden>
+        <div class="result-orbit"><div class="orbit-ring"><span id="resultLetter">P</span></div></div>
+        <div class="result-copy">
+          <span>RESULTADO</span>
+          <h2 id="resultTitle">PRIMO</h2>
+          <p id="resultMessage"></p>
+        </div>
+        <div class="result-details">
+          <div class="details-title"><span>›</span> Detalles del cálculo</div>
+          <p id="detailSqrt"></p>
+          <p id="detailChecks"></p>
+          <p id="detailFactor"></p>
+        </div>
+      </section>
+
+      <section id="batchState" class="batch-state" hidden>
+        <div class="batch-heading"><span>RESULTADOS DE LA LISTA</span><button id="closeBatchBtn" type="button">Cerrar ×</button></div>
+        <div id="batchGrid" class="batch-grid"></div>
+      </section>
+
+      <div class="footer-line">UN NÚMERO. UNA RESPUESTA. UN PASO MÁS.</div>
+    </section>
+
+    <aside class="history-panel">
+      <div class="history-header"><h2>HISTORIAL</h2><button id="clearHistoryBtn" type="button">⌫</button></div>
+      <div id="emptyHistory" class="history-empty">
+        <div class="history-empty-icon">☷</div>
+        <p>Aún no hay números analizados.</p>
+        <span>Comienza ingresando un número.</span>
+      </div>
+      <div id="historyList" class="history-list"></div>
+      <div class="history-footer">LOS NÚMEROS TAMBIÉN CUENTAN HISTORIAS —</div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
